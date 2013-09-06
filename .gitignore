@@ -1,0 +1,16 @@
+/target
+/.settings
+/.classpath
+/.project
+/logunit-core/target
+/logunit-core/.classpath
+/logunit-core/.project
+/logunit-core/.settings
+/logunit-junit4/.project
+/logunit-junit4/.settings
+/logunit-junit4/target
+/logunit-junit4/.classpath
+/logunit-log4j12/.project
+/logunit-log4j12/.settings
+/logunit-log4j12/target
+/logunit-log4j12/.classpath
