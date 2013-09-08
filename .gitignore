@@ -22,3 +22,7 @@
 /logunit-examples/.settings
 /logunit-examples/target
 /logunit-examples/.classpath
+/logunit-logback/.project
+/logunit-logback/.settings
+/logunit-logback/target
+/logunit-logback/.classpath
