@@ -6,6 +6,14 @@ import org.wickedsource.logunit.LogUnitEvent;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.ConsoleAppender;
 
+/**
+ * A LogUnit-aware Logback {@link ConsoleAppender}. Configure Logback with this
+ * appender to allow {@link LogUnit} to listen on log events and thus to enable
+ * unit testing of log output.
+ * 
+ * @author hombergs
+ * 
+ */
 public class LogUnitLogbackConsoleAppender extends
 		ConsoleAppender<ILoggingEvent> {
 
