@@ -3,6 +3,13 @@ package org.wickedsource.logunit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * A LogUnit expectation defines what is expected to be logged during a unit
+ * test.
+ * 
+ * @author Tom
+ * 
+ */
 public class Expectation {
 
 	private Pattern pattern;
@@ -15,32 +22,94 @@ public class Expectation {
 
 	private boolean inverted;
 
+	/**
+	 * Constructs an expectation with a given regular expression pattern. The
+	 * expectation will be fulfilled if a log message matching this pattern is
+	 * logged.
+	 * 
+	 * @param pattern
+	 *            the pattern that is expected to be logged.
+	 */
 	public Expectation(Pattern pattern) {
 		this.pattern = pattern;
 	}
 
+	/**
+	 * Constructs an expectation with a given regular expression pattern and a
+	 * given log level. The expectation will be fulfilled if a log message
+	 * matching the pattern with the given log level is logged.
+	 * 
+	 * @param pattern
+	 *            the pattern that is expected to be logged.
+	 * @param level
+	 *            the log level that the message is expected to be logged on.
+	 */
 	public Expectation(Pattern pattern, LogLevel level) {
 		this.pattern = pattern;
 		this.level = level;
 	}
 
+	/**
+	 * Constructs an expectation with a given regular expression pattern, a
+	 * given log level and a given logger name. The expectation will be
+	 * fulfilled if a log message matching the given pattern is logged on the
+	 * given log level and the logger with the given name.
+	 * 
+	 * @param pattern
+	 *            the pattern that is expected to be logged.
+	 * @param level
+	 *            the log level that the message is expected to be logged on.
+	 * @param loggerName
+	 *            the name of the logger that is expected to log the message.
+	 */
 	public Expectation(Pattern pattern, LogLevel level, String loggerName) {
 		this.pattern = pattern;
 		this.level = level;
 		this.loggerName = loggerName;
 	}
 
-	public Expectation(String text) {
-		this.pattern = Pattern.compile(text);
+	/**
+	 * Constructs an expectation with a given regular expression pattern. The
+	 * expectation will be fulfilled if a log message matching this pattern is
+	 * logged.
+	 * 
+	 * @param pattern
+	 *            the pattern that is expected to be logged.
+	 */
+	public Expectation(String pattern) {
+		this.pattern = Pattern.compile(pattern);
 	}
 
-	public Expectation(String text, LogLevel level) {
-		this.pattern = Pattern.compile(text);
+	/**
+	 * Constructs an expectation with a given regular expression pattern and a
+	 * given log level. The expectation will be fulfilled if a log message
+	 * matching the pattern with the given log level is logged.
+	 * 
+	 * @param pattern
+	 *            the pattern that is expected to be logged.
+	 * @param level
+	 *            the log level that the message is expected to be logged on.
+	 */
+	public Expectation(String pattern, LogLevel level) {
+		this.pattern = Pattern.compile(pattern);
 		this.level = level;
 	}
 
-	public Expectation(String text, LogLevel level, String loggerName) {
-		this.pattern = Pattern.compile(text);
+	/**
+	 * Constructs an expectation with a given regular expression pattern, a
+	 * given log level and a given logger name. The expectation will be
+	 * fulfilled if a log message matching the given pattern is logged on the
+	 * given log level and the logger with the given name.
+	 * 
+	 * @param pattern
+	 *            the pattern that is expected to be logged.
+	 * @param level
+	 *            the log level that the message is expected to be logged on.
+	 * @param loggerName
+	 *            the name of the logger that is expected to log the message.
+	 */
+	public Expectation(String pattern, LogLevel level, String loggerName) {
+		this.pattern = Pattern.compile(pattern);
 		this.level = level;
 		this.loggerName = loggerName;
 	}
@@ -98,6 +167,15 @@ public class Expectation {
 		this.fulfilled = fulfilled;
 	}
 
+	/**
+	 * Consumes a {@link LogUnitEvent} and compares the data in the event to the
+	 * data expected by this {@link Expectation}. If the comparison is
+	 * successful, this {@link Expectation}s "fulfilled" status is updated.s
+	 * 
+	 * @param event
+	 *            the log event that contains the data to compare to the
+	 *            expected data.
+	 */
 	public void consumeLogEvent(LogUnitEvent event) {
 		if (!fulfilled) {
 			this.fulfilled = matchesPattern(event) && matchesLogLevel(event)

@@ -6,7 +6,8 @@
 		<artifactId>logunit</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>logunit-showcase</artifactId>
+	<artifactId>logunit-examples</artifactId>
+	<description>Examples for working with LogUnit.</description>
 
 	<dependencies>
 		<dependency>

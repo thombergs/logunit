@@ -19,7 +19,7 @@ public class JUnit4AndLog4J12Example {
 		logunit.expect("An error occured!", LogLevel.ERROR);
 
 		// produce an error message (in real code you would not do this
-		// directly, but call some business method that does the logging)
+		// directly, but call the code under test that does the logging)
 		logger.error("An error occured!");
 
 		// assert that the expectations defined earlier were actually fulfilled
