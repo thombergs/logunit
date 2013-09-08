@@ -20,6 +20,11 @@
 				<artifactId>logunit-junit4</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.wickedsource</groupId>
+				<artifactId>logunit-log4j12</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

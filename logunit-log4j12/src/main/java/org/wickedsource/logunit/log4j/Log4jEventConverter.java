@@ -5,11 +5,13 @@ import org.apache.log4j.spi.LoggingEvent;
 import org.wickedsource.logunit.LogLevel;
 import org.wickedsource.logunit.LogUnitEvent;
 
+/**
+ * Converts log4j {@link LoggingEvent}s to a {@link LogUnitEvent}.
+ * 
+ * @author Tom
+ */
 public class Log4jEventConverter {
 
-	/**
-	 * Converts a log4j {@link LoggingEvent} to a {@link LogUnitEvent}.
-	 */
 	public LogUnitEvent convert(LoggingEvent event) {
 		LogUnitEvent logUnitEvent = new LogUnitEvent();
 		logUnitEvent.setLevel(mapLevel(event));
@@ -33,7 +35,8 @@ public class Log4jEventConverter {
 		} else if (level == Level.WARN) {
 			return LogLevel.WARN;
 		}
-		throw new IllegalArgumentException(String.format("LogUnit does not support the log4j log level %s", level));
+		throw new IllegalArgumentException(String.format(
+				"LogUnit does not support the log4j log level %s", level));
 	}
 
 }

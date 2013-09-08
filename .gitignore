@@ -14,3 +14,7 @@
 /logunit-log4j12/.settings
 /logunit-log4j12/target
 /logunit-log4j12/.classpath
+/logunit-showcase/target
+/logunit-showcase/.settings
+/logunit-showcase/.classpath
+/logunit-showcase/.project

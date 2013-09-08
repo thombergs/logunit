@@ -6,9 +6,7 @@
 		<artifactId>logunit</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>logunit-log4j12</artifactId>
-	<name>logunit-log4j12</name>
-	<description>LogUnit module for Log4J 1.2 support</description>
+	<artifactId>logunit-showcase</artifactId>
 
 	<dependencies>
 		<dependency>
@@ -16,9 +14,13 @@
 			<artifactId>logunit-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
+			<groupId>org.wickedsource</groupId>
+			<artifactId>logunit-junit4</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.wickedsource</groupId>
+			<artifactId>logunit-log4j12</artifactId>
 		</dependency>
 	</dependencies>
+
 </project>

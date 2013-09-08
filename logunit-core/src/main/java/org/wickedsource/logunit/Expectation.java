@@ -81,7 +81,8 @@ public class Expectation {
 	}
 
 	/**
-	 * Returns whether this expectation has been fulfilled or not.
+	 * Returns whether this expectation has been fulfilled or not (this takes
+	 * into account whether this {@link Expectation} is inverted or not).
 	 * 
 	 * @return true if this expectation was fulfilled, false if not.
 	 */
@@ -127,7 +128,8 @@ public class Expectation {
 
 	public String toString() {
 		return String
-				.format("[Expectation: [expected pattern: %s] [expected log level: %s] [expected logger name: %s]]",
-						this.pattern, this.level, this.loggerName);
+				.format("[Expectation: %s [expected pattern: %s] [expected log level: %s] [expected logger name: %s]]",
+						inverted ? "NOT" : "", this.pattern, this.level,
+						this.loggerName);
 	}
 }
