@@ -40,25 +40,27 @@ from within unit tests. </p>
 <h3>
 <a name="code-example" class="anchor" href="#code-example"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>The following example uses JUnit 4 as unit testing framework and log4j as logging framework. Read below for instructions on how to use different frameworks. You can browse a couple of examples <a href="https://github.com/thombergs/logunit/tree/master/logunit-examples/src/test/java/org/wickedsource/logunit/showcase">here</a></p>
+<p>The following example uses JUnit 4 as unit testing framework and log4j as logging framework. Read below for instructions on how to use different frameworks. You can browse a couple of examples <a href="https://github.com/thombergs/logunit/tree/master/logunit-examples/src/test/java/org/wickedsource/logunit/showcase">here</a>.</p>
 
-<div class="highlight highlight-java"><pre><span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
-    <span class="c1">// retrieve the Log4J implementation of LogUnit</span>
-    <span class="n">LogUnit</span> <span class="n">logunit</span> <span class="o">=</span> <span class="n">LogUnit</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+<p>Basically, you define what logging output you expect before calling the code under test. After the code under test has been executed, you call LogUnit.assertExpectations() to verify that all expectations have been fulfilled.</p>
 
-    <span class="c1">// use the expect* methods to define what you expect to be logged in</span>
-    <span class="c1">// your unit test</span>
-    <span class="n">logunit</span><span class="o">.</span><span class="na">expect</span><span class="o">(</span><span class="s">"An error occured!"</span><span class="o">,</span> <span class="n">LogLevel</span><span class="o">.</span><span class="na">ERROR</span><span class="o">);</span>
+<pre><code>@Test
+public void test() {
+  // retrieve the Log4J implementation of LogUnit
+  LogUnit logunit = LogUnit.get();
 
-    <span class="c1">// produce an error message (in real code you would not do this</span>
-    <span class="c1">// directly, but call the code under test that does the logging)</span>
-    <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"An error occured!"</span><span class="o">);</span>
+  // use the expect* methods to define what you expect to be logged in
+  // your unit test
+  logunit.expect("An error occured!", LogLevel.ERROR);
 
-    <span class="c1">// assert that the expectations defined earlier were actually fulfilled</span>
-    <span class="n">logunit</span><span class="o">.</span><span class="na">assertExpectations</span><span class="o">();</span>
-<span class="o">}</span>
-</pre></div>
+  // produce an error message (in real code you would not do this
+  // directly, but call the code under test that does the logging)
+  logger.error("An error occured!");
+
+  // assert that the expectations defined earlier were actually fulfilled
+  logunit.assertExpectations();
+}
+</code></pre>
 
 <h3>
 <a name="using-log4j" class="anchor" href="#using-log4j"><span class="octicon octicon-link"></span></a>Using log4j</h3>
@@ -68,13 +70,13 @@ from within unit tests. </p>
 <h4>
 <a name="maven-coordinates" class="anchor" href="#maven-coordinates"><span class="octicon octicon-link"></span></a>Maven coordinates</h4>
 
-<div class="highlight highlight-xml"><pre><span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.wickedsource<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>logunit-log4j12<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</pre></div>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.wickedsource&lt;/groupId&gt;
+  &lt;artifactId&gt;logunit-log4j12&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
 
 <h4>
 <a name="log4j-configuration" class="anchor" href="#log4j-configuration"><span class="octicon octicon-link"></span></a>log4j configuration</h4>
@@ -95,56 +97,56 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] (%F:%L) - %m%n
 <h4>
 <a name="maven-coordinates-1" class="anchor" href="#maven-coordinates-1"><span class="octicon octicon-link"></span></a>Maven coordinates</h4>
 
-<div class="highlight highlight-xml"><pre><span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.wickedsource<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>logunit-logback<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</pre></div>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.wickedsource&lt;/groupId&gt;
+  &lt;artifactId&gt;logunit-logback&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
 
 <h4>
 <a name="logback-configuration" class="anchor" href="#logback-configuration"><span class="octicon octicon-link"></span></a>logback configuration</h4>
 
 <p>Configure logback to use org.wickedsource.logunit.logback.LogUnitLogbackConsoleAppender as appender. This enables logunit to listen on log events. An example configuration is the following (logback.xml in the root of the classpath):</p>
 
-<div class="highlight highlight-xml"><pre><span class="nt">&lt;configuration&gt;</span>
-  <span class="nt">&lt;appender</span> <span class="na">name=</span><span class="s">"STDOUT"</span> <span class="na">class=</span><span class="s">"org.wickedsource.logunit.logback.LogUnitLogbackConsoleAppender"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;encoder&gt;</span>
-      <span class="nt">&lt;pattern&gt;</span>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n<span class="nt">&lt;/pattern&gt;</span>
-    <span class="nt">&lt;/encoder&gt;</span>
-  <span class="nt">&lt;/appender&gt;</span>
-  <span class="nt">&lt;root</span> <span class="na">level=</span><span class="s">"debug"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">"STDOUT"</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;/root&gt;</span>
-<span class="nt">&lt;/configuration&gt;</span>
-</pre></div>
+<pre><code>&lt;configuration&gt;
+  &lt;appender name="STDOUT" class="org.wickedsource.logunit.logback.LogUnitLogbackConsoleAppender"&gt;
+    &lt;encoder&gt;
+      &lt;pattern&gt;%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n&lt;/pattern&gt;
+    &lt;/encoder&gt;
+  &lt;/appender&gt;
+  &lt;root level="debug"&gt;
+    &lt;appender-ref ref="STDOUT" /&gt;
+  &lt;/root&gt;
+&lt;/configuration&gt;
+</code></pre>
 
 <h3>
 <a name="using-junit-4" class="anchor" href="#using-junit-4"><span class="octicon octicon-link"></span></a>Using JUnit 4</h3>
 
 <p>If you use JUnit 4 as unit testing framework, simply add the following maven module to your classpath (or download the jar directly). It will then be automatically used by the central LogUnit class.</p>
 
-<div class="highlight highlight-xml"><pre><span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.wickedsource<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>logunit-junit4<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</pre></div>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.wickedsource&lt;/groupId&gt;
+  &lt;artifactId&gt;logunit-junit4&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
 
 <h3>
 <a name="using-testng" class="anchor" href="#using-testng"><span class="octicon octicon-link"></span></a>Using TestNG</h3>
 
 <p>If you use TestNG as unit testing framework, simply add the following maven module to your classpath (or download the jar directly). It will then be automatically used by the central LogUnit class.</p>
 
-<div class="highlight highlight-xml"><pre><span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.wickedsource<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>logunit-testng<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</pre></div>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.wickedsource&lt;/groupId&gt;
+  &lt;artifactId&gt;logunit-testng&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
         </section>
 
         <footer>
