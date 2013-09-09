@@ -97,12 +97,27 @@ public abstract class LogUnit {
 	}
 
 	/**
+	 * This method has to be implemented for the unit test framework in use.
+	 * Each expectation passed to the method must be asserted by checking if
+	 * <code>expectation.isFulfilled()</code> returns true.
+	 * <p/>
+	 * If an expectation is not fulfilled, this method should cause a unit test
+	 * to fail and display the string representation (
+	 * <code>expectation.toString()</code>) of the failed expectation to the
+	 * user.
+	 * 
+	 * @param expectations
+	 *            the expectations to assert
+	 */
+	protected abstract void assertExpectations(Set<Expectation> expectations);
+
+	/**
 	 * This method uses the assertion facilities of a given unit test framework
 	 * to assert that all expectations that have been defined are fulfilled.
-	 * Thus, this method must be implemented differently for different unit test
-	 * frameworks.
-	 */
-	public abstract void assertExpectations();
+	 **/
+	public void assertExpectations() {
+		assertExpectations(this.expectations);
+	}
 
 	public Set<Expectation> getExpectations() {
 		return expectations;
@@ -128,22 +143,43 @@ public abstract class LogUnit {
 				boolean implementationFound = false;
 				while (implementations.hasNext()) {
 					LogUnit currentImplementation = implementations.next();
-					implementation = currentImplementation;
 					if (implementationFound) {
 						throw new IllegalStateException(
 								String.format(
-										"There are at least two implementations of %s registered (%s and %s). Please remove all implementations but one.",
+										"There are at least two implementations of %s registered (%s and %s). Please remove all implementations but one from the classpath.",
 										LogUnit.class.getName(),
 										currentImplementation.getClass()
 												.getName(), implementation
 												.getClass().getName()));
 					}
+					implementation = currentImplementation;
 					implementationFound = true;
 				}
+
+				if (implementation == null) {
+					throw new IllegalStateException(
+							String.format(
+									"No implementation of %s registered. Please add exactly one implementation to the classpath.",
+									LogUnit.class.getName()));
+				}
+
 				instance = implementation;
 			}
 		}
 		return instance;
+	}
+
+	/**
+	 * Explicitly sets the singleton LogUnit instance to the given
+	 * implementation. Subsequent calls to <code>get()</code> will then return
+	 * the given implementation.
+	 * 
+	 * @param implementation
+	 *            the {@link LogUnit} implementation to use as singleton
+	 *            instance.
+	 */
+	public static void setInstance(LogUnit implementation) {
+		instance = implementation;
 	}
 
 }

@@ -26,3 +26,9 @@
 /logunit-logback/.settings
 /logunit-logback/target
 /logunit-logback/.classpath
+/logunit-testng/.classpath
+/logunit-testng/.project
+/logunit-testng/.settings
+/logunit-testng/target
+/logunit-testng/test-output
+/logunit-examples/test-output

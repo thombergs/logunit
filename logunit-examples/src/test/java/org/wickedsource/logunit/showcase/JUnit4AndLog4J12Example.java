@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.wickedsource.logunit.LogLevel;
 import org.wickedsource.logunit.LogUnit;
+import org.wickedsource.logunit.junit4.LogUnitForJUnit;
 
 public class JUnit4AndLog4J12Example {
 
@@ -11,6 +12,10 @@ public class JUnit4AndLog4J12Example {
 
 	@Test
 	public void test() {
+		// register the TestNG module for LogUnit (happens automatically if you
+		// have exactly one module on the classpath)
+		LogUnit.setInstance(new LogUnitForJUnit());
+
 		// retrieve the Log4J implementation of LogUnit
 		LogUnit logunit = LogUnit.get();
 

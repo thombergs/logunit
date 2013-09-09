@@ -1,22 +1,22 @@
 package org.wickedsource.logunit.showcase;
 
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.Test;
 import org.wickedsource.logunit.LogLevel;
 import org.wickedsource.logunit.LogUnit;
-import org.wickedsource.logunit.junit4.LogUnitForJUnit;
+import org.wickedsource.logunit.testng.LogUnitForTestNG;
 
-public class JUnit4AndLogbackExample {
+public class TestNGAndLogbackExample {
 
 	private Logger logger = LoggerFactory
-			.getLogger(JUnit4AndLogbackExample.class);
+			.getLogger(TestNGAndLogbackExample.class);
 
 	@Test
 	public void test() {
 		// register the TestNG module for LogUnit (happens automatically if you
 		// have exactly one module on the classpath)
-		LogUnit.setInstance(new LogUnitForJUnit());
+		LogUnit.setInstance(new LogUnitForTestNG());
 
 		// retrieve the Log4J implementation of LogUnit
 		LogUnit logunit = LogUnit.get();

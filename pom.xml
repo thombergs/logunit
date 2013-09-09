@@ -44,6 +44,11 @@
 				<artifactId>logunit-logback</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.wickedsource</groupId>
+				<artifactId>logunit-testng</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -53,5 +58,6 @@
 		<module>logunit-log4j12</module>
 		<module>logunit-logback</module>
 		<module>logunit-examples</module>
+		<module>logunit-testng</module>
 	</modules>
 </project>
