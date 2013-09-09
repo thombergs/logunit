@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.wickedsource</groupId>
 		<artifactId>logunit</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0</version>
 	</parent>
 	<artifactId>logunit-core</artifactId>
 	<name>logunit-core</name>

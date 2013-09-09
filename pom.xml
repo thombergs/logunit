@@ -3,10 +3,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.wickedsource</groupId>
 	<artifactId>logunit</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>logunit</name>
 	<description>Allows testing of logging output from within unit tests.</description>
 	<packaging>pom</packaging>
+
+	<modules>
+		<module>logunit-core</module>
+		<module>logunit-junit4</module>
+		<module>logunit-log4j12</module>
+		<module>logunit-logback</module>
+		<module>logunit-examples</module>
+		<module>logunit-testng</module>
+	</modules>
 
 	<build>
 		<plugins>
@@ -17,6 +26,24 @@
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<configuration>
+					<header>NOTICE</header>
+					<includes>
+						<include>src/main/java/**/*.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<reportOutputDirectory>${basedir}</reportOutputDirectory>
+					<destDir>apidocs</destDir>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -52,12 +79,4 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<modules>
-		<module>logunit-core</module>
-		<module>logunit-junit4</module>
-		<module>logunit-log4j12</module>
-		<module>logunit-logback</module>
-		<module>logunit-examples</module>
-		<module>logunit-testng</module>
-	</modules>
 </project>

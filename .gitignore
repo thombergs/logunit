@@ -32,3 +32,12 @@
 /logunit-testng/target
 /logunit-testng/test-output
 /logunit-examples/test-output
+/pom.xml.versionsBackup
+/logunit-core/apidocs
+/logunit-junit4/apidocs
+/logunit-log4j12/pom.xml.versionsBackup
+/logunit-log4j12/apidocs
+/logunit-logback/pom.xml.versionsBackup
+/logunit-logback/apidocs
+/logunit-testng/pom.xml.versionsBackup
+/logunit-testng/apidocs
