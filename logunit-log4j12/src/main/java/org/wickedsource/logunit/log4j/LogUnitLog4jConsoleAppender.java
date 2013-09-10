@@ -24,7 +24,7 @@ import org.wickedsource.logunit.LogUnitEvent;
  * appender to allow {@link LogUnit} to listen on log events and thus to enable
  * unit testing of log output.
  * 
- * @author hombergs
+ * @author Tom Hombergs <tom.hombergs@gmail.com>
  * 
  */
 public class LogUnitLog4jConsoleAppender extends ConsoleAppender {

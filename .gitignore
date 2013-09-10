@@ -41,3 +41,7 @@
 /logunit-logback/apidocs
 /logunit-testng/pom.xml.versionsBackup
 /logunit-testng/apidocs
+
+/logunit-core/pom.xml.versionsBackup
+/logunit-examples/pom.xml.versionsBackup
+/logunit-junit4/pom.xml.versionsBackup

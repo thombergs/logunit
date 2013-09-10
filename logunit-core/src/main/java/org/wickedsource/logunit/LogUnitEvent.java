@@ -17,7 +17,7 @@ package org.wickedsource.logunit;
 /**
  * Log event class used by LogUnit.
  * 
- * @author hombergs
+ * @author Tom Hombergs <tom.hombergs@gmail.com>
  * 
  */
 public class LogUnitEvent {
