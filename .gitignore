@@ -45,3 +45,5 @@
 /logunit-core/pom.xml.versionsBackup
 /logunit-examples/pom.xml.versionsBackup
 /logunit-junit4/pom.xml.versionsBackup
+
+/settings.xml
