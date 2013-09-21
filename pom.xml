@@ -7,6 +7,27 @@
 	<name>logunit</name>
 	<description>Allows testing of logging output from within unit tests.</description>
 	<packaging>pom</packaging>
+	<url>http://thombergs.github.io/logunit/</url>
+
+	<scm>
+		<url>https://github.com/thombergs/logunit</url>
+		<connection>https://github.com/thombergs/logunit.git</connection>
+	</scm>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<email>tom.hombergs@gmail.com</email>
+			<name>Tom Hombergs</name>
+			<url>http://wickedsource.org</url>
+		</developer>
+	</developers>
 
 	<modules>
 		<module>logunit-core</module>
@@ -16,6 +37,30 @@
 		<module>logunit-examples</module>
 		<module>logunit-testng</module>
 	</modules>
+
+	<profiles>
+		<profile>
+			<id>sign</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.4</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>package</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
@@ -41,10 +86,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<reportOutputDirectory>${basedir}</reportOutputDirectory>
-					<destDir>apidocs</destDir>
-				</configuration>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
