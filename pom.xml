@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.wickedsource.logunit</groupId>
 	<artifactId>logunit</artifactId>
-	<version>1.0</version>
+	<version>1.1</version>
 	<name>logunit</name>
 	<description>Allows testing of logging output from within unit tests.</description>
 	<packaging>pom</packaging>
