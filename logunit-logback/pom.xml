@@ -12,7 +12,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.wickedsource</groupId>
+			<groupId>org.wickedsource.logunit</groupId>
 			<artifactId>logunit-core</artifactId>
 		</dependency>
 		<dependency>

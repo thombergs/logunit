@@ -112,27 +112,27 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.wickedsource</groupId>
+				<groupId>org.wickedsource.logunit</groupId>
 				<artifactId>logunit-core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.wickedsource</groupId>
+				<groupId>org.wickedsource.logunit</groupId>
 				<artifactId>logunit-junit4</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.wickedsource</groupId>
+				<groupId>org.wickedsource.logunit</groupId>
 				<artifactId>logunit-log4j12</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.wickedsource</groupId>
+				<groupId>org.wickedsource.logunit</groupId>
 				<artifactId>logunit-logback</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.wickedsource</groupId>
+				<groupId>org.wickedsource.logunit</groupId>
 				<artifactId>logunit-testng</artifactId>
 				<version>${project.version}</version>
 			</dependency>
