@@ -33,7 +33,7 @@ Using log4j 1.2.x, you should include the following maven module (or download th
 #### Maven coordinates
 ```
 <dependency>
-  <groupId>org.wickedsource</groupId>
+  <groupId>org.wickedsource.logunit</groupId>
   <artifactId>logunit-log4j12</artifactId>
   <version>1.1</version>
   <scope>test</scope>
@@ -56,7 +56,7 @@ Using logback, you should include the following maven module (or download the ja
 #### Maven coordinates
 ```
 <dependency>
-  <groupId>org.wickedsource</groupId>
+  <groupId>org.wickedsource.logunit</groupId>
   <artifactId>logunit-logback</artifactId>
   <version>1.1</version>
   <scope>test</scope>
@@ -84,7 +84,7 @@ If you use JUnit 4 as unit testing framework, simply add the following maven mod
 
 ```
 <dependency>
-  <groupId>org.wickedsource</groupId>
+  <groupId>org.wickedsource.logunit</groupId>
   <artifactId>logunit-junit4</artifactId>
   <version>1.1</version>
   <scope>test</scope>
@@ -96,7 +96,7 @@ If you use TestNG as unit testing framework, simply add the following maven modu
 
 ```
 <dependency>
-  <groupId>org.wickedsource</groupId>
+  <groupId>org.wickedsource.logunit</groupId>
   <artifactId>logunit-testng</artifactId>
   <version>1.1</version>
   <scope>test</scope>
