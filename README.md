@@ -4,7 +4,7 @@ logunit is a small and simple framework to allow testing of logging output
 from within unit tests. 
 
 ### Code example
-The following example uses JUnit 4 as unit testing framework and log4j as logging framework. Read below for instructions on how to use different frameworks. You can browse a couple of examples [here](https://github.com/thombergs/logunit/tree/master/logunit-examples/src/test/java/org/wickedsource/logunit/showcase).
+The following example uses JUnit 4 as unit testing framework and log4j as logging framework. Read below for instructions on how to use different frameworks. You can browse a couple of examples [here](https://github.com/thombergs/logunit/tree/master/logunit-examples/src/main/java/org/wickedsource/logunit/showcase).
 
 Basically, you define what logging output you expect before calling the code under test. After the code under test has been executed, you call LogUnit.assertExpectations() to verify that all expectations have been fulfilled.
 
